@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: cnewbeazuredevopsgithubacraksapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cnewbeazuredevopsgithubacraksapp
+  template:
+    metadata:
+      labels:
+        app: cnewbeazuredevopsgithubacraksapp 
+    spec:
+      containers:
+        - name: cnewbeazuredevopsgithubacraksapp 
+          image: yuchang.azurecr.io/cnewbeazuredevopsgithubacraksapp
+          ports:
+          - containerPort: 80
