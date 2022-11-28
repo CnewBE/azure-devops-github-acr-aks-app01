@@ -72,7 +72,7 @@ pipeline {
             git config --global push.default simple
           """
 
-          git url: "${HELM_CHART}", credentialsId: 'mungta_github_ssh', branch: 'main'
+          git url: "${HELM_CHART}", credentialsId: 'mungta_github_ssh', branch: 'master'
           sh """
             sed -i 's/tag:.*/tag: "${IMAGE_TAG}"/g' ${HELM_VALUES}
             git add ${HELM_VALUES}
@@ -80,7 +80,7 @@ pipeline {
           """
 
           sshagent (credentials: ['mungta_github_ssh']) {
-            sh 'git push origin main'
+            sh 'git push origin master'
           }
         }
     }
