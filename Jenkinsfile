@@ -14,9 +14,9 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                        sh 'docker build . '
-                        sh 'docker  tag hello-world yuchang.azurecr.io/hello-world'
-                        sh 'docker push yuchang.azurecr.io/hello-world'
+                        sh 'docker build -t hello-world:v1 .'
+                        sh 'docker tag hello-world yuchang.azurecr.io/hello-world:v1'
+                        sh 'docker push yuchang.azurecr.io/hello-world:v1'
             }
         }
     }
